@@ -7,12 +7,21 @@
 ### Create a list
 Send:
 
-```/create title
+```
+/create title
+description...
+more descriptions...
+
+even more descriptions ...
+
 ---
+
 entry one
 entry two
 entry thee
 ```
+
+(The bot treats descriptions and entries equally, and will not remove extra blank lines from it.)
 
 ### Contribute to a list
 Reply to a list with:
