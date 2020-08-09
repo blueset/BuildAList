@@ -20,7 +20,7 @@ export default function Home() {
             <p><InlineIcon icon={telegram} /> Try it out</p>
           </a>
 
-          <a href="https://github.com/blueset/text-contrib-bot" className={styles.card}>
+          <a href="https://github.com/blueset/BuildAList" className={styles.card}>
             <p>Source</p>
           </a>
         </div>
