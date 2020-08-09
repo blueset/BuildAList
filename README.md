@@ -1,30 +1,56 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Build-a-list bot
 
-## Getting Started
+- [Try it out on Telegram](https://t.me/buildalistbot)
+- Made to run on Vercel.
 
-First, run the development server:
+## How to use
+### Create a list
+Send:
 
-```bash
-npm run dev
-# or
+```/create title
+---
+entry one
+entry two
+entry thee
+```
+
+### Contribute to a list
+Reply to a list with:
+```
+entry four
+entry five
+entry two
+-entry one
+```
+This will add `entry four`, `entry five` and remove `entry one` from the list.
+`entry two` will not be added twice since it is already in the list.
+
+## Setup
+### Install
+```
+yarn install
+```
+
+### Environment variables
+Note: replace `123456:ABCDEFghijklmnop098765` with your own token.
+```
+echo 'BOT_TOKEN="123456:ABCDEFghijklmnop098765"' > .env
+```
+
+### Run in development mode
+```
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Build and run
+```
+yarn build
+yarn serve
+```
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+### Set webhook with Telegram
+Note: replace `example.com` with your own domain.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```
+http POST https://api.telegram.org/bot123456:ABCDEFghijklmnop098765/setWebhook url=https://example.com/api/123456:ABCDEFghijklmnop098765
+```
