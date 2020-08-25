@@ -14,7 +14,9 @@ const PROXY =
   process.env.https_proxy ||
   process.env.HTTPS_PROXY || null;
 
-const telegrafOptions: TelegrafOptions = {};
+const telegrafOptions: TelegrafOptions = {
+  username: process.env.BOT_USERNAME,
+};
 
 if (PROXY) {
   telegrafOptions.telegram = { agent: new ProxyAgent(PROXY) };
