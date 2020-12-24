@@ -75,13 +75,12 @@ bot.on("message", async (context) => {
   previous = previous.filter((v) => !toRemove.has(v));
   entries = entries.filter((v) => (!v.startsWith("-") && !existing.has(v)));
   const newText = previous.concat(entries).join("\n");
-  console.log(previous, entries, newText)
 
+  await context.deleteMessage(replyTo.message_id);
   await context.reply(
     newText,
     { reply_to_message_id: context.message.message_id }
   );
-  await context.deleteMessage(replyTo.message_id);
 });
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
