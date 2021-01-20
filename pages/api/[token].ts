@@ -16,6 +16,7 @@ const PROXY =
 
 const telegrafOptions: TelegrafOptions = {
   username: process.env.BOT_USERNAME,
+  telegram: { webhookReply: false },
 };
 
 if (PROXY) {
